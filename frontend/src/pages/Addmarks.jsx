@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Addmarks.css';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const AddMarks = () => {
   const [form, setForm] = useState({
     regNo: '',
@@ -16,10 +18,10 @@ const AddMarks = () => {
 
   const fetchMarks = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/marks/all");
+      const res = await axios.get(`${API_URL}/api/marks/all`);
       setMarksData(res.data);
-    } catch {
-      console.log("Error fetching marks");
+    } catch (error) {
+      console.log("Error fetching marks", error);
     }
   };
 
@@ -53,12 +55,12 @@ const AddMarks = () => {
 
       if (editId) {
         res = await axios.put(
-          `http://localhost:5000/api/marks/update/${editId}`,
+          `${API_URL}/api/marks/update/${editId}`,
           form
         );
       } else {
         res = await axios.post(
-          "http://localhost:5000/api/marks/add",
+          `${API_URL}/api/marks/add`,
           form
         );
       }
@@ -68,7 +70,8 @@ const AddMarks = () => {
       resetForm();
       fetchMarks();
 
-    } catch {
+    } catch (error) {
+      console.log(error);
       alert("Error saving marks");
     }
   };
@@ -90,9 +93,10 @@ const AddMarks = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/marks/delete/${id}`);
+      await axios.delete(`${API_URL}/api/marks/delete/${id}`);
       fetchMarks();
-    } catch {
+    } catch (error) {
+      console.log(error);
       alert("Error deleting");
     }
   };

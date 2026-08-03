@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './AddAnnouncement.css';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const AddAnnouncement = () => {
   const faculty = JSON.parse(localStorage.getItem("faculty"));
 
@@ -22,7 +24,7 @@ const AddAnnouncement = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/announcement/add",
+        `${API_URL}/api/announcement/add`,
         {
           title: form.title,
           message: form.message,
@@ -37,14 +39,14 @@ const AddAnnouncement = () => {
         message: ''
       });
 
-    } catch {
+    } catch (error) {
+      console.error(error);
       alert("Error adding announcement");
     }
   };
 
   return (
     <div className="ann-container">
-
       <form className="ann-form" onSubmit={handleSubmit}>
         <h2>Faculty Announcement</h2>
 
@@ -68,9 +70,7 @@ const AddAnnouncement = () => {
         <button type="submit">
           Post Announcement
         </button>
-
       </form>
-
     </div>
   );
 };

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './ViewAnnouncement.css';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const ViewAnnouncement = () => {
   const [announcements, setAnnouncements] = useState([]);
 
@@ -9,11 +11,11 @@ const ViewAnnouncement = () => {
     const fetchAnnouncements = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/announcement/view"
+          `${API_URL}/api/announcement/view`
         );
         setAnnouncements(res.data);
-      } catch {
-        console.log("Error fetching announcements");
+      } catch (error) {
+        console.log("Error fetching announcements", error);
       }
     };
 

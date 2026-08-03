@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './AddAttendance.css';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const AddAttendance = () => {
   const today = new Date().toISOString().split("T")[0];
 
@@ -23,10 +25,12 @@ const AddAttendance = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/attendance/add",
+        `${API_URL}/api/attendance/add`,
         form
       );
+
       alert(res.data.message);
+
       setForm({
         regNo: '',
         status: 'Present',
@@ -42,6 +46,7 @@ const AddAttendance = () => {
     <div className="attendance-container">
       <form className="attendance-form" onSubmit={handleSubmit}>
         <h2>Add Attendance</h2>
+
         <input
           type="text"
           name="regNo"
@@ -50,6 +55,7 @@ const AddAttendance = () => {
           onChange={handleChange}
           required
         />
+
         <input
           type="date"
           name="date"
@@ -58,12 +64,18 @@ const AddAttendance = () => {
           onChange={handleChange}
           required
         />
-        <select name="status" value={form.status} onChange={handleChange}>
+
+        <select
+          name="status"
+          value={form.status}
+          onChange={handleChange}
+        >
           <option value="Present">Present</option>
           <option value="Absent">Absent</option>
           <option value="Leave">Leave</option>
           <option value="OD">OD</option>
         </select>
+
         <button type="submit">Submit</button>
       </form>
     </div>

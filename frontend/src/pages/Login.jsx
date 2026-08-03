@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Login = ({ setStudent }) => {
   const [form, setForm] = useState({
     regNo: '',
@@ -23,7 +25,7 @@ const Login = ({ setStudent }) => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        `${API_URL}/api/auth/login`,
         form
       );
 
@@ -31,13 +33,12 @@ const Login = ({ setStudent }) => {
 
       if (res.data.student) {
         localStorage.setItem("student", JSON.stringify(res.data.student));
-
-        setStudent(res.data.student);   // 🔥 IMPORTANT
-
+        setStudent(res.data.student);
         navigate("/studenthome");
       }
 
     } catch (error) {
+      console.error(error);
       alert("Login failed");
     }
   };

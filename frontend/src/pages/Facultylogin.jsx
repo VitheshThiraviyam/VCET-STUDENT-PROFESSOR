@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Facultylogin.css';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const FacultyLogin = ({ setFaculty }) => {
   const [form, setForm] = useState({
     staffId: '',
@@ -23,7 +25,7 @@ const FacultyLogin = ({ setFaculty }) => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/adminlogin",
+        `${API_URL}/api/auth/adminlogin`,
         form
       );
 
@@ -36,6 +38,7 @@ const FacultyLogin = ({ setFaculty }) => {
       }
 
     } catch (error) {
+      console.error(error);
       alert("Login failed");
     }
   };

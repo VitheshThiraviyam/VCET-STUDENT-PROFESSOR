@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Viewmarks.css';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const ViewMarks = () => {
   const [marksData, setMarksData] = useState([]);
   const student = JSON.parse(localStorage.getItem("student"));
@@ -10,11 +12,11 @@ const ViewMarks = () => {
     const fetchMarks = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/marks/view?regNo=${student.regNo}`
+          `${API_URL}/api/marks/view?regNo=${student.regNo}`
         );
         setMarksData(res.data);
-      } catch {
-        console.log("Error fetching marks");
+      } catch (error) {
+        console.log("Error fetching marks", error);
       }
     };
 

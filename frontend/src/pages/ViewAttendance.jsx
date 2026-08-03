@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './ViewAttendance.css';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const ViewAttendance = () => {
   const [attendanceData, setAttendanceData] = useState([]);
   const student = JSON.parse(localStorage.getItem("student"));
@@ -10,11 +12,11 @@ const ViewAttendance = () => {
     const fetchAttendance = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/attendance/view?regNo=${student.regNo}`
+          `${API_URL}/api/attendance/view?regNo=${student.regNo}`
         );
         setAttendanceData(res.data);
-      } catch {
-        console.log("Error fetching attendance");
+      } catch (error) {
+        console.log("Error fetching attendance", error);
       }
     };
 
@@ -27,7 +29,8 @@ const ViewAttendance = () => {
     (item) => item.status === "Present" || item.status === "OD"
   ).length;
 
-  const percentage = total > 0 ? ((presentCount / total) * 100).toFixed(2) : 0;
+  const percentage =
+    total > 0 ? ((presentCount / total) * 100).toFixed(2) : 0;
 
   return (
     <div className="va-container">
