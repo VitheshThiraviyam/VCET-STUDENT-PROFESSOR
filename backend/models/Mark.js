@@ -2,8 +2,12 @@ import mongoose from "mongoose";
 
 const marksSchema = new mongoose.Schema({
   regNo: String,
+  semester: String,
+  iat: String,
   subject: String,
   marks: Number
 });
 
-export default mongoose.model("Marks", marksSchema);
+const Marks = mongoose.model("Marks", marksSchema);
+
+export default Marks;

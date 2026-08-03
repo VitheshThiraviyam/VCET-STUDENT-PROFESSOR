@@ -1,0 +1,90 @@
+.va-container {
+  min-height: 100vh;
+  padding: 40px;
+  background: linear-gradient(to right, #eef2f3, #dfe9f3);
+}
+
+.va-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 26px;
+  color: #333;
+  font-weight: bold;
+}
+
+.va-percentage-box {
+  margin: 10px auto 20px auto;
+  padding: 12px 20px;
+  background: #4a6cf7;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  text-align: center;
+  width: fit-content;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.va-table-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.va-table {
+  width: 80%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.va-th {
+  background: #4a6cf7;
+  color: #fff;
+  padding: 12px;
+  font-size: 16px;
+}
+
+.va-td {
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.va-row:nth-child(even) {
+  background: #f5f7fb;
+}
+
+.va-row:hover {
+  background: #e6ecff;
+  transition: 0.2s;
+}
+
+.va-status {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.va-present {
+  color: green;
+}
+
+.va-absent {
+  color: red;
+}
+
+.va-leave {
+  color: orange;
+}
+
+.va-od {
+  color: blue;
+}
+
+.va-empty {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+  font-style: italic;
+}

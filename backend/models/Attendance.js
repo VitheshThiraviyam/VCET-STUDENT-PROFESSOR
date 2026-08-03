@@ -1,9 +1,21 @@
 import mongoose from "mongoose";
 
 const attendanceSchema = new mongoose.Schema({
-  regNo: String,
-  subject: String,
-  percentage: Number
+  regNo: {
+    type: String,
+    required: true
+  },
+  status: {
+    type: String,
+    enum: ["Present", "Absent", "Leave", "OD"],
+    default: "Present"
+  },
+  date: {
+    type: String,
+    required: true
+  }
 });
 
-export default mongoose.model("Attendance", attendanceSchema);
+const Attendance = mongoose.model("Attendance", attendanceSchema);
+
+export default Attendance;

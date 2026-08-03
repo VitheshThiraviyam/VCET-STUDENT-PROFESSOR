@@ -1,0 +1,130 @@
+.am-container {
+  min-height: 100vh;
+  padding: 40px;
+  background: linear-gradient(to right, #eef2f3, #dfe9f3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.am-form {
+  width: 360px;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.am-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.am-form input,
+.am-form select {
+  padding: 11px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.2s;
+}
+
+.am-form input:focus,
+.am-form select:focus {
+  border-color: #4a6cf7;
+  box-shadow: 0 0 5px rgba(74,108,247,0.4);
+}
+
+.am-btn {
+  padding: 11px;
+  border: none;
+  background: #4a6cf7;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.am-btn:hover {
+  background: #2f4ed8;
+  transform: scale(1.03);
+}
+
+
+.am-table-container {
+  width: 90%;
+  max-width: 1000px;
+}
+
+.am-table-container h2 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.am-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.am-table th {
+  background: #4a6cf7;
+  color: white;
+  padding: 12px;
+}
+
+.am-table td {
+  padding: 12px;
+  text-align: center;
+}
+
+.am-table tr:nth-child(even) {
+  background: #f5f7ff;
+}
+
+.am-table tr:hover {
+  background: #e6ecff;
+}
+
+
+.am-table button {
+  margin: 0 5px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.am-cancel-btn {
+  padding: 11px;
+  border: none;
+  background: #4a6cf7;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.am-table button:first-child {
+  background: #28a745;
+  color: white;
+}
+
+.am-table button:first-child:hover {
+  background: #1e7e34;
+}
+
+.am-table button:last-child {
+  background: #dc3545;
+  color: white;
+}
+
+.am-table button:last-child:hover {
+  background: #a71d2a;
+}

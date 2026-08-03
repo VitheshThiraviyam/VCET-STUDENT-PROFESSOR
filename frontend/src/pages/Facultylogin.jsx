@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './Login.css';
+import './Facultylogin.css';
 
-const Login = ({ setStudent }) => {
+const FacultyLogin = ({ setFaculty }) => {
   const [form, setForm] = useState({
-    regNo: '',
+    staffId: '',
     password: ''
   });
 
@@ -23,18 +23,16 @@ const Login = ({ setStudent }) => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "http://localhost:5000/api/auth/adminlogin",
         form
       );
 
       alert(res.data.message);
 
-      if (res.data.student) {
-        localStorage.setItem("student", JSON.stringify(res.data.student));
-
-        setStudent(res.data.student);   // 🔥 IMPORTANT
-
-        navigate("/studenthome");
+      if (res.data.faculty) {
+        localStorage.setItem("faculty", JSON.stringify(res.data.faculty));
+        setFaculty(res.data.faculty);
+        navigate("/facultyhome");
       }
 
     } catch (error) {
@@ -43,15 +41,15 @@ const Login = ({ setStudent }) => {
   };
 
   return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Login</h2>
+    <div className="faculty-login-container">
+      <form className="faculty-login-form" onSubmit={handleSubmit}>
+        <h2>Faculty Login</h2>
 
         <input
           type="text"
-          name="regNo"
-          placeholder="Enter your Register Number"
-          value={form.regNo}
+          name="staffId"
+          placeholder="Enter Staff ID"
+          value={form.staffId}
           onChange={handleChange}
           required
         />
@@ -59,16 +57,18 @@ const Login = ({ setStudent }) => {
         <input
           type="password"
           name="password"
-          placeholder="Enter your Password"
+          placeholder="Enter Password"
           value={form.password}
           onChange={handleChange}
           required
         />
 
-        <button type="submit">Login</button>
+        <button type="submit" className="faculty-login-btn">
+          Login
+        </button>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default FacultyLogin;

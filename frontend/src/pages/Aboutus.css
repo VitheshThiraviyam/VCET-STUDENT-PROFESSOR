@@ -1,0 +1,54 @@
+.college-container {
+  min-height: 100vh;
+  background: linear-gradient(to right, #eef2f3, #dfe9f3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.college-card {
+  max-width: 900px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.college-title {
+  text-align: center;
+  color: #4a6cf7;
+  margin-bottom: 20px;
+}
+
+.college-text {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.college-section {
+  margin-top: 25px;
+}
+
+.college-section h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.college-section ul {
+  padding-left: 20px;
+}
+
+.college-section li {
+  margin-bottom: 8px;
+}
+
+.college-footer {
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  color: #555;
+}

@@ -1,0 +1,57 @@
+.faculty-home-container {
+  padding: 30px;
+  text-align: center;
+}
+
+.faculty-home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faculty-home-title {
+  font-size: 28px;
+}
+
+.faculty-home-logout {
+  padding: 8px 12px;
+  border: none;
+  background: red;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.faculty-home-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.faculty-home-card {
+  background: #f5f5f5;
+  padding: 20px;
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.faculty-home-card h3 {
+  margin-bottom: 10px;
+}
+
+.faculty-home-btn {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  background: #4a90e2;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.faculty-home-btn:hover {
+  background: #357abd;
+}

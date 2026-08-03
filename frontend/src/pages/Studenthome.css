@@ -1,0 +1,61 @@
+.student-home-container {
+  padding: 30px;
+  text-align: center;
+}
+
+.student-home-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.student-home-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.student-home-card {
+  background: #f5f5f5;
+  padding: 20px;
+  width: 240px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.student-home-card h3 {
+  margin-bottom: 10px;
+}
+
+.student-home-card p {
+  font-size: 14px;
+}
+
+.student-home-btn {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  background: #4a90e2;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.student-home-btn:hover {
+  background: #357abd;
+}
+
+.student-home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.student-home-logout {
+  padding: 8px 12px;
+  border: none;
+  background: red;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
